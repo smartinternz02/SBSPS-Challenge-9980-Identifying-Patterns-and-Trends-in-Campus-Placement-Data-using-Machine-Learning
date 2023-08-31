@@ -1,0 +1,571 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+
+/*NAVBAR*/
+:root {
+    --primary-color: #9e25f5;
+    --secondary-color: #9792c7;
+    --secondary-color-with-opacity: #bab4e21f;
+    --background-color: #F5F5FD;
+    --background-color-hover: #e5e5ec;
+    --text: #9792c7;
+    --white: #fff;
+    --black: #000;
+}
+
+body {
+    margin: 0;
+    font-family: 'montserrat', sans-serif;
+    background-color: var(--white);
+    color: var(--primary-color);
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+
+.navbar {
+    background-color: #fff;
+    height: 100%;
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    padding: 1.563em;
+    font-weight: 600;
+    width: 18.75em;
+    box-sizing: border-box;
+    justify-content: space-between;
+}
+
+.navbar-brand {
+    padding: 2.188em 0em 2em 1em;
+    text-decoration: none;
+    color: var(--secondary-color);
+}
+
+.navbar-brand .icon-container {
+    width: 2em;
+    height: 2em;
+    border-radius: 0.8em;
+    margin-bottom: .5em;
+    padding: 0.5em;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.navbar-brand .icon {
+    width: 2em;
+    height: 2em;
+    background-color: #fff;
+}
+
+/* .navbar-brand .icon.hexagon {
+    -webkit-mask: url(https://ozcanzaferayan.github.io/financial-crm/icon/hexagon.svg) no-repeat center;
+    mask: url(https://ozcanzaferayan.github.io/financial-crm/icon/hexagon.svg) no-repeat center;
+} */
+
+/* .navbar-brand .name {
+    padding-top: -5em;
+} */
+
+ul.navbar-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-nav a {
+    display: flex;
+    color: var(--secondary-color);
+    padding: 1em;
+    text-decoration: none;
+    align-items: center;
+    cursor: pointer;
+}
+
+.navbar-nav a.active {
+    color: var(--primary-color)
+}
+
+.navbar-nav a:not(.active):hover {
+    background-color: var(--background-color-hover);
+}
+
+.navbar-nav .active .icon {
+    background-color: var(--primary-color);
+    width: 2em;
+    height: 2em;
+}
+
+.icon {
+    background-color: var(--secondary-color);
+    width: 2em;
+    height: 2em;
+}
+
+.navbar-nav img {
+    margin-right: .5em;
+}
+
+
+/* Bottombar icons */
+
+.navbar-nav .icon.home {
+    -webkit-mask: url(https://ozcanzaferayan.github.io/financial-crm/icon/home.svg) no-repeat center;
+    mask: url(https://ozcanzaferayan.github.io/financial-crm/icon/home.svg) no-repeat center;
+}
+
+.navbar-nav .icon.statistics {
+    -webkit-mask: url(https://ozcanzaferayan.github.io/financial-crm/icon/bar-chart-2.svg) no-repeat center;
+    mask: url(https://ozcanzaferayan.github.io/financial-crm/icon/bar-chart-2.svg) no-repeat center;
+}
+
+.navbar-nav .icon.mail {
+    -webkit-mask: url(https://ozcanzaferayan.github.io/financial-crm/icon/mail.svg) no-repeat center;
+    mask: url(https://ozcanzaferayan.github.io/financial-crm/icon/mail.svg) no-repeat center;
+}
+
+.navbar-nav .icon.user {
+    -webkit-mask: url(https://ozcanzaferayan.github.io/financial-crm/icon/user.svg) no-repeat center;
+    mask: url(https://ozcanzaferayan.github.io/financial-crm/icon/user.svg) no-repeat center;
+}
+
+.navbar-nav .icon.file {
+    -webkit-mask: url(https://ozcanzaferayan.github.io/financial-crm/icon/file.svg) no-repeat center;
+    mask: url(https://ozcanzaferayan.github.io/financial-crm/icon/file.svg) no-repeat center;
+}
+
+.navbar-footer .image-documents {
+    margin-bottom: -8em;
+    position: relative;
+    z-index: 1
+}
+
+.navbar-footer .container {
+    background-color: var(--background-color);
+    margin: .5em;
+    padding: 1.688em;
+    padding-top: 6em;
+    display: flex;
+    flex-direction: column;
+    font-weight: normal;
+    border-radius: 1em;
+    position: relative;
+    bottom: 0;
+    box-sizing: border-box;
+}
+
+.navbar-footer h2 {
+    margin-bottom: 0.25em;
+    color: var(--black);
+}
+
+.navbar-footer span {
+    color: var(--text);
+    font-size: .8em;
+}
+
+.navbar-footer a {
+    color: var(--white);
+    background-color: var(--primary-color);
+    text-decoration: none;
+    text-align: center;
+    padding: 1em;
+    border-radius: 1.7em;
+    margin-top: 1em;
+}
+
+.navbar-footer a:hover {
+    background-color: #5a009a;
+}
+
+@media screen and (max-width: 768px) {
+    /* Tablet (768px) */
+    .navbar {
+        bottom: 0;
+        width: 100%;
+        height: auto;
+        padding: 0.1em;
+        position: fixed;
+        margin: 0;
+        border-top: 1px solid var(--background-color);
+    }
+    .navbar-brand {
+        display: none;
+    }
+    .navbar-nav {
+        display: flex;
+        width: 100%;
+        height: auto;
+        justify-content: space-around;
+    }
+    .navbar-nav a {
+        float: left;
+        font-size: 0.8em;
+        padding: 1em 0.5em;
+    }
+    .navbar-nav .icon {
+        width: 2em;
+        height: 2em;
+    }
+    .navbar-nav img {
+        margin-right: .5em;
+    }
+    .navbar-footer {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    /* Phone (Large)*/
+    .navbar-nav {
+        position: relative;
+        bottom: 0;
+        display: flex;
+        justify-content: space-around;
+    }
+    .navbar-nav a {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    /* Phone (Small) */
+    .navbar-nav span {
+        display: none;
+    }
+}
+/*HEADER*/
+main {
+    margin-top: 1em;
+    margin-right: 1em;
+    border-radius: 1.5em;
+    margin-left: 18.75em;
+    width: 100%;
+    height: 100%;
+    background-color: var(--background-color);
+    padding: 2.3em;
+}
+
+main header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main header .icon.search {
+    -webkit-mask: url(https://ozcanzaferayan.github.io/financial-crm/icon/search.svg) no-repeat center;
+    mask: url(https://ozcanzaferayan.github.io/financial-crm/icon/search.svg) no-repeat center;
+}
+
+main header .form-inline {
+    display: flex;
+    width: 100%;
+}
+
+main header input[type="search"] {
+    border: none;
+    background: none;
+    margin-left: 0.5em;
+    outline: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    width: 100%;
+    -webkit-appearance: none;
+}
+
+main header button {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: 2px solid;
+    border-color: var(--secondary-color-with-opacity);
+    outline: none;
+    border-radius: 0.8em;
+    padding: .8em 1.2em;
+    color: var(--text);
+    font-weight: 600;
+}
+
+main header button.updateskill {
+    margin-right: 1.2em;
+}
+
+main header button.notification {
+    border: none;
+}
+
+main header button.menu {
+    border: none;
+}
+
+main header .change-view .icon {
+    margin-right: 0.5em;
+}
+
+main header .icon.search {
+    -webkit-mask: url(https://ozcanzaferayan.github.io/financial-crm/icon/search.svg) no-repeat center;
+    mask: url(https://ozcanzaferayan.github.io/financial-crm/icon/search.svg) no-repeat center;
+}
+
+main header section[role="application"] {
+    display: flex;
+}
+
+main header .icon.layout {
+    -webkit-mask: url(https://ozcanzaferayan.github.io/financial-crm/icon/layout.svg) no-repeat center;
+    mask: url(https://ozcanzaferayan.github.io/financial-crm/icon/layout.svg) no-repeat center;
+}
+
+main header .icon.notification {
+    -webkit-mask: url(https://ozcanzaferayan.github.io/financial-crm/icon/bell.svg) no-repeat center;
+    mask: url(https://ozcanzaferayan.github.io/financial-crm/icon/bell.svg) no-repeat center;
+}
+
+main header .icon.menu {
+    -webkit-mask: url(https://ozcanzaferayan.github.io/financial-crm/icon/menu.svg) no-repeat center;
+    mask: url(https://ozcanzaferayan.github.io/financial-crm/icon/menu.svg) no-repeat center;
+}
+
+main h1 {
+    font-size: 3em;
+    color: var(--black);
+    margin-top: 0;
+}
+
+@media screen and (max-width: 768px) {
+    /* Tablet (768px) */
+    main {
+        margin-left: 0;
+        border-radius: 0;
+        margin: 0;
+        padding: 0em;
+    }
+    main header {
+        margin-bottom: 0em;
+        padding: 1em;
+    }
+    main header button.change-view {
+        display: none;
+    }
+    main h1 {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    /* Phone (Large)*/
+}
+
+@media screen and (max-width: 320px) {
+    /* Phone (Small) */
+    main header button {
+        padding: 0em 1.2em;
+    }
+    main header {
+        padding: 0.5em 0.7em;
+    }
+}
+/*CHARTS*/.charts-wrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+main section[role="id-card"] {
+    width: 310px;
+    height: 210px;
+    /* background-color: var(--primary-color); */
+    border-radius: 1.2em;
+    position: relative;
+    margin-left: -4em;
+    margin-bottom: 1em;
+    padding: 2em;
+    box-sizing: border-box;
+    -webkit-box-shadow: 10px 10px 46px -6px rgba(104, 87, 150, 0.526);
+    -moz-box-shadow: 10px 10px 46px -6px rgba(104, 87, 150, 0.526);
+    box-shadow: 10px 10px 46px -6px rgba(104, 87, 150, 0.526);
+    background: linear-gradient(100deg, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+    background-size: 900% 900%;
+
+    -webkit-animation: rainbow 12s ease infinite;
+    -z-animation: rainbow 12s ease infinite;
+    -o-animation: rainbow 12s ease infinite;
+    animation: rainbow 12s ease infinite;}
+
+  @-webkit-keyframes rainbow {
+      0%{background-position:0% 82%}
+      50%{background-position:100% 19%}
+      100%{background-position:0% 82%}
+  }
+  @-moz-keyframes rainbow {
+      0%{background-position:0% 82%}
+      50%{background-position:100% 19%}
+      100%{background-position:0% 82%}
+  }
+  @-o-keyframes rainbow {
+      0%{background-position:0% 82%}
+      50%{background-position:100% 19%}
+      100%{background-position:0% 82%}
+  }
+  @keyframes rainbow { 
+      0%{background-position:0% 82%}
+      50%{background-position:100% 19%}
+      100%{background-position:0% 82%}
+
+}
+
+main section[role="id-card"] img {
+    width: 4em;
+    height: 100%;
+}
+
+main section[role="id-card"] img.apple_pay {
+    width: 3em;
+}
+
+main section[role="id-card"] .top {
+    display: flex;
+    justify-content: space-between;
+}
+
+main section[role="id-card"] .ccNumber {
+    margin-top: .8em;
+    display: flex;
+    justify-content: space-between;
+    color: var(--white);
+    font-family: monospace;
+    font-size: 1.2rem;
+}
+
+.ccBottom {
+    margin-top: .7em;
+    display: flex;
+    justify-content: space-between;
+    color: var(--white);
+}
+
+.ccValidThru,
+.ccCardHolder {
+    display: flex;
+    flex-direction: column;
+}
+
+.ccCardHolder {
+    margin-right: 1em;
+}
+
+.ccBottom label {
+    opacity: .5;
+    font-size: .7em;
+}
+
+main section[role="chart"] {
+    width: 100%;
+    margin-left: 1em;
+    height: 18em;
+    background-color: var(--white);
+    border-radius: 1.2em;
+    margin-bottom: 1em;
+    padding: 2em;
+    padding-bottom: 5em;
+    box-sizing: border-box;
+}
+
+section[role="chart"] .title {
+    color: var(--black);
+    font-weight: 700;
+    margin-top: 0;
+}
+
+main section[role="chart"].exchange-rates {
+    width: calc(100% - 270px);
+}
+
+main section[role="chart"].ckeck-stand {
+    width: calc(100% - 350px);
+}
+
+/* main section[role="chart"].lat-costs {
+    width: auto;
+} */
+
+main section[role="chart"].efficiency {
+    width: 310px;
+}
+
+@media screen and (max-width: 1024px) {
+    /* Laptop (1024px) */
+    main section[role="chart"].efficiency {
+        width: 170px;
+    }
+    main section[role="chart"].ckeck-stand {
+        width: calc(100% - 210px);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* Tablet (768px) */
+    main section[role="id-card"] {
+        margin-left: 0;
+    }
+    .charts-wrapper {
+        flex-direction: column;
+    }
+    main section[role="chart"].exchange-rates,
+    main section[role="chart"].ckeck-stand,
+    main section[role="chart"].efficiency {
+        margin-left: 0;
+        width: 100%;
+        padding: 2em;
+        border-radius: 0;
+        padding-bottom: 5em;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    main section[role="chart"].exchange-rates,
+    main section[role="chart"].ckeck-stand,
+    main section[role="chart"].efficiency {
+        padding: 0.5em;
+        padding-bottom: 3em;
+    }
+    main section[role="chart"].efficiency {
+        margin-bottom: 5em;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    /* Phone (Small) */
+    main section[role="id-card"] {
+        width: 100%;
+        padding: 0.75em;
+        margin-bottom: 0.75em;
+        border-radius: 0;
+        height: initial;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+    }
+    main section[role="id-card"] img {
+        width: 2em;
+    }
+    main section[role="id-card"] img.apple_pay {
+        width: 2em;
+    }
+    main section[role="id-card"] .ccNumber {
+        margin-top: 0.7em;
+    }
+    .ccBottom {
+        margin-top: 0.7em;
+    }
+    section[role="chart"] .title {
+        margin-bottom: 0.2em;
+    }
+    main section[role="chart"].exchange-rates,
+    main section[role="chart"].ckeck-stand,
+    main section[role="chart"].efficiency {
+        height: 12em;
+    }
+}

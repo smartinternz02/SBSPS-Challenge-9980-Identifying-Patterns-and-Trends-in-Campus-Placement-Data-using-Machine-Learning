@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>   CSV UPLOAD</title>
+  <link rel="stylesheet" href="../static/csvupload.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body>
+  <!-- <div class="wrapper">
+    <header>Uplad CSV File</header>
+    <form action="#">
+      <input class="file-input" type="file" name="file" hidden>
+      <i class="fas fa-cloud-upload-alt"></i>
+      <p>Browse File to Upload</p>
+
+    </form>
+    <section class="progress-area"></section>
+    <section class="uploaded-area"></section>
+
+    <div class="button">
+    
+      <i class="fas fa-cloud-upload-alt" style="font-size: 30px;"></i>
+      <p>Browse File to Upload</p>
+
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <input type="submit" value="Predict">
+    </div>
+  </div> -->
+  <div class="wrapper">
+    <header>Upload Waste Image</header>
+    <form target="_blank" action="#" method="POST" name="file" enctype="multipart/form-data">
+      {% csrf_token %}
+    
+      <input class="file-input" type="file" name="file" hidden>
+      
+    
+      
+      
+      <div class="button" style="text-align: center;">
+
+        <i class="fas fa-cloud-upload-alt" style="font-size: 30px;"></i>
+        <p>Browse File to Upload</p>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <input type="submit" value="Predict">
+        
+        
+      </div>
+      
+    </form>
+    <section class="progress-area"></section>
+    <section class="uploaded-area"></section>
+
+    
+    
+  </div>
+  
+
+  <script src="../static/csvupload.js"></script>
+
+</body>
+</html>

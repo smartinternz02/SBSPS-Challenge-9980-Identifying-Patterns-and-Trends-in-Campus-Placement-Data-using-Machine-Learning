@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Faculty | PrepCamp</title>
+  <link rel="stylesheet" href="../static/facultydashboard.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<body>
+    <nav class="navbar">
+        <a class="navbar-brand" href="#">
+            <div class="icon-container">
+                <img src="../static/p..svg" style="width: 90%;" />
+            </div>
+            <!-- <span class="name">PrepCamp</span> -->
+        </a>
+        <ul class="navbar-nav">
+            <li>
+                <a class="active"><img class="icon home" /><span>Home</span></a>
+            </li>
+           
+            <li>
+                <a><img class="icon user" /><span>Profile</span></a>
+            </li>
+            <li>
+                <a><img class="icon file" /><span>Documents</span></a>
+            </li>
+        </ul>
+        <div class="navbar-footer">
+            <img class="image-documents" src="../static/growillustration.svg" alt="documents" style="width: 85%; padding-left: 1.3em;"/>
+            <div class="container">
+                <h2>Student Data</h2>
+                <span>Upload Data</span>
+                <a href="#" download>Upload</a>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <header>
+            <section role="search">
+                <!-- <form action="#" method="get">
+                    <div class="form-inline">
+                        <img class="icon search" />
+                        <input type="search" placeholder="Search" />
+                    </div>
+                </form> -->
+            </section>
+
+            <!-- <section role="application">
+                <form action="/engg_result" action="POST">
+                    <input type="file" id="myFile" name="file">
+                    <input type="submit" style="margin-left: -4rem;">
+                </form> -->
+
+                <a href="/csv_mba" style="text-decoration: none"><button class="updateskill" style="cursor: pointer;" ahref ="/form.html">
+                    Update Skills
+                </button>
+                </a>
+
+
+
+
+
+
+                <!-- <button class="notification">
+                    <img class="icon notification" />
+                </button>
+                <button class="menu">
+                    <img class="icon menu" />
+                </button> -->
+            </section>
+        </header>
+        <h1>Admin Dashboard</h1>
+        <div class="charts-wrapper">
+            <!-- <section role="id-card">
+                <div class="top">
+                    
+                    <img src="../assets/img/QR Code.svg" id="qr" style="width: 25%;" />
+                    <img src="../assets/img/logo2.svg" style="opacity: .5;" class="apple_pay"/>
+                </div>
+                <div class="ccNumber">
+                    <span>Student Name</span>
+                </div>
+                <div class="ccBottom">
+                    <div class="ccValidThru">
+                        <label>PRN</label>
+                        <span id="prn">2222027</span>
+                    </div>
+                    <div class="ccCardHolder">
+                        <label>DEPARTMENT</label>
+                        <span>EXTC B</span>
+                    </div>
+                </div>
+            </section> -->
+
+            <section role="chart" class="efficiency">
+                <h3 class="title">Placement Analytics</h3>
+                <canvas id="efficiency"></canvas>
+
+            </section>
+            
+            <section role="chart" class="exchange-rates">
+                <h3 class="title">Progress</h3>
+                <canvas id="exchangeRates"></canvas>
+            </section>
+
+            
+            <section role="chart" class="ckeck-stand">
+                <h3 class="title">Check where you stand</h3>
+                <canvas id="ckeck_stand"></canvas>
+
+            </section>
+        
+
+            <section role="chart" class="efficiency">
+                
+
+            </section>
+
+            <section role="chart" class="efficiency">
+                <canvas id="eff"></canvas>
+            </section>
+            <!-- <section role="chart" class="lat-costs" style="display: flex; justify-content: space-between;">
+                
+
+            </section> -->
+           
+            
+        </div>
+    </main>
+</body>
+<!-- partial -->
+  <script src='https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js'></script>
+<script src='https://ozcanzaferayan.github.io/financial-crm/vendor/chartjs/Chart.roundedBarCharts.js'></script>
+<script  src="../static/facultydashboard.js"></script>
+
+</body>
+</html>

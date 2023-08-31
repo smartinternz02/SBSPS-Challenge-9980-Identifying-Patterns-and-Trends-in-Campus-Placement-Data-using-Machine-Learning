@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--========== BOX ICONS ==========-->
+        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+        <!--========== CSS ==========-->
+        <link rel="stylesheet" href="../static/result.css">
+
+
+        <title>Result</title>
+    </head>
+    <body>
+        <!--========== SCROLL TOP ==========-->
+        <a href="#" class="scrolltop" id="scroll-top">
+            <i class='bx bx-up-arrow-alt scrolltop__icon'></i>
+        </a>
+        
+
+        <main class="l-main">
+            <!--========== HOME ==========-->
+            <section class="home" id="home">
+                <div class="home__container bd-container bd-grid">
+                    <div class="home__img">
+                        <img src="../static/carbon_result-draft.png" alt="">
+                    </div>
+
+                    <div class="home__data">
+                        <h1 class="home__title" id="probability">{{perc}}%</h1>
+                        <h2>chances of you getting placed</h2>
+                        <!-- <p class="home__description">Breaking barriers between technology and lifestyle.</p> -->
+                        <!-- <a href="#disease" class="button" style="margin-top: 2rem; mix-blend-mode: screen;">Back to Dashboard</a>
+                    </div>    -->
+                    <br>
+
+                    <div class="home__data">
+                        <h1 class="home__title" id="probability">{{salary}}</h1>
+                        <h2>salary predicted</h2>
+                        <!-- <p class="home__description">Breaking barriers between technology and lifestyle.</p> -->
+                       
+                    </div>  
+                </div>
+            </section>
+            <br>
+            <br>
+
+            <section class="about section bd-container" id="about">
+
+                <div class="about__data">
+                    <h2 class="section-title-center">Cluster Analysis: </h2>
+                    <!-- <p class="about__description">Nidan uses the power of machine learning and AI to accurately diagnose diseases. Simply input your symptoms and medical history, and our intelligent algorithm will analyze the data to provide a personalized diagnosis. Our system is continually learning and improving, ensuring the most up-to-date and accurate information is provided.</p> -->
+                    <ul class="aboutlist">
+                        <li>
+                            In the Clusters of SSC% and HSC% your score is {{clust[0]}} in spectrum of 0 to 3
+                        </li>
+                        <li>
+                            In the Clusters of Degree% and Specialisation your score is {{clust[1]}} in spectrum of 0 to 1
+                        </li>
+                        <li>
+                            In the Clusters of Work Experience and Stream your score is {{clust[2]}} in spectrum of 0 to 3
+                        </li>
+                        <li>
+                            In the Clusters of Work Experience and Specialisation your score is {{clust[3]}} in spectrum of 0 to 2
+                        </li>
+                        <li>
+                            In the Clusters of Work Experience and Degree% your score is {{clust[4]}} in spectrum of 0 to 1
+                        </li>
+                    </ul>
+                </div>
+
+
+
+                <br>
+
+
+
+
+
+
+
+
+
+                
+                <div class="about__data">
+                    <h2 class="section-title-center">Tips to improve: </h2>
+                    <!-- <p class="about__description">Nidan uses the power of machine learning and AI to accurately diagnose diseases. Simply input your symptoms and medical history, and our intelligent algorithm will analyze the data to provide a personalized diagnosis. Our system is continually learning and improving, ensuring the most up-to-date and accurate information is provided.</p> -->
+                    <ul class="aboutlist">
+                        <li>
+                            Maintain a strong academic record, especially in relevant subjects, to demonstrate your capability to handle the rigorous curriculum.
+                        </li>
+                        <li>
+                            Obtain strong recommendation letters from supervisors, professors, or professionals who can vouch for your skills, work ethic, and potential.
+                        </li>
+                        <li>
+                            ailor your resume and cover letter to highlight your relevant skills, experiences, and achievements for each job application.
+                        </li>
+                        <li>
+                            Research job market trends to identify industries and companies that align with your career goals.
+
+                        </li>
+                        <li>
+                            Build strong relationships with professors, mentors, and colleagues who can provide positive references or recommendations.
+                        </li>
+                        
+                    </ul>
+                </div>                
+        </section>
+
+
+        <!--========== SCROLL REVEAL ==========-->
+        <script src="https://unpkg.com/scrollreveal"></script>
+
+        <!--========== MAIN JS ==========-->
+        <script src="../static/result.js"></script>
+    </body>
+</html>

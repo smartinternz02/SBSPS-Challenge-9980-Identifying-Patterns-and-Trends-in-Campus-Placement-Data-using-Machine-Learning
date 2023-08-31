@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+
+body{
+  font-family: montserrat;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(100deg, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+  background-size: 1800% 1800%;
+
+  -webkit-animation: rainbow 12s ease infinite;
+  -z-animation: rainbow 12s ease infinite;
+  -o-animation: rainbow 12s ease infinite;
+    animation: rainbow 12s ease infinite;}
+
+  @-webkit-keyframes rainbow {
+      0%{background-position:0% 82%}
+      50%{background-position:100% 19%}
+      100%{background-position:0% 82%}
+  }
+  @-moz-keyframes rainbow {
+      0%{background-position:0% 82%}
+      50%{background-position:100% 19%}
+      100%{background-position:0% 82%}
+  }
+  @-o-keyframes rainbow {
+      0%{background-position:0% 82%}
+      50%{background-position:100% 19%}
+      100%{background-position:0% 82%}
+  }
+  @keyframes rainbow { 
+      0%{background-position:0% 82%}
+      50%{background-position:100% 19%}
+      100%{background-position:0% 82%}
+}
+
+.wrapper { 
+  width: 100%;
+  height: 100%;
+  left:0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  position: absolute;
+}
+
+.hero{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 13%;
+}
+
+.hero img{
+  width: 25%;
+  opacity: .85;
+}
+
+.login-button{
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+a{
+  text-decoration: none;
+  color: #000000;
+  margin: 2rem;
+  background: #ffffffd8 ;
+  padding: 1.3rem 2rem;
+  border-radius: 2rem;
+  font-weight: 700;
+  mix-blend-mode: screen;
+  font-size: 1.2rem;
+}
+
+a:hover{
+  background: #ffffff6c ;
+  color: #ffffff;
+  transition: all 0.1s ;
+}
+
+footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin-top: 5rem;
+}
+

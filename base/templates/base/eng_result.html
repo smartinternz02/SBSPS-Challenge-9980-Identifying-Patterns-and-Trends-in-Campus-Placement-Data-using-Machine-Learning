@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--========== BOX ICONS ==========-->
+        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+        <!--========== CSS ==========-->
+        <link rel="stylesheet" href="../static/result.css">
+
+
+        <title>Result</title>
+    </head>
+    <body>
+        <!--========== SCROLL TOP ==========-->
+        <a href="#" class="scrolltop" id="scroll-top">
+            <i class='bx bx-up-arrow-alt scrolltop__icon'></i>
+        </a>
+        
+
+        <main class="l-main">
+            <!--========== HOME ==========-->
+            <section class="home" id="home">
+                <div class="home__container bd-container bd-grid">
+                    <div class="home__img">
+                        <img src="../static/carbon_result-draft.png" alt="">
+                    </div>
+
+                    <div class="home__data">
+                        <h1 class="home__title" id="probability">{{perc}}%</h1>
+                        <h2>chances of you getting placed</h2>
+                        <!-- <p class="home__description">Breaking barriers between technology and lifestyle.</p> -->
+                        <a href="" class="button" style="margin-top: 2rem; mix-blend-mode: screen;">Back to Dashboard</a>
+                    </div>   
+                </div>
+            </section>
+            <br>
+            <br>
+
+            <section class="about section bd-container" id="about">
+
+                <div class="about__data">
+                    <h2 class="section-title-center">Cluster Analysis: </h2>
+                    <!-- <p class="about__description">Nidan uses the power of machine learning and AI to accurately diagnose diseases. Simply input your symptoms and medical history, and our intelligent algorithm will analyze the data to provide a personalized diagnosis. Our system is continually learning and improving, ensuring the most up-to-date and accurate information is provided.</p> -->
+                    <ul class="aboutlist">
+                        <li>
+                            In the Clusters of internship and CGPA your score is {{clust[0]}} in spectrum of 0 to 1
+
+                        </li>
+                        <li>
+                            In the Clusters of History Backlog and CGPA your score is {{clust[1]}} in spectrum of 0 to 2
+
+                        </li>
+                        <li>
+                            In the Clusters of internship and History of backlogs your score is {{clust[3]}} in spectrum of 0 to 3
+
+                        </li>
+                        <li>
+                            In the Clusters of Hostel and CGPA your score is {{clust[3]}} in spectrum of 0 to 2
+
+                        </li>
+                        <li>
+                            In the Clusters of Age and History of backlogs your score is {{clust[4]}} in spectrum of 0 to 2
+
+                        </li>
+                    </ul>
+                </div>  
+
+                <br>
+                
+                <div class="about__data">
+                    <h2 class="section-title-center">Tips to improve: </h2>
+                    <!-- <p class="about__description">Nidan uses the power of machine learning and AI to accurately diagnose diseases. Simply input your symptoms and medical history, and our intelligent algorithm will analyze the data to provide a personalized diagnosis. Our system is continually learning and improving, ensuring the most up-to-date and accurate information is provided.</p> -->
+                    <ul class="aboutlist">
+                        <li>
+                            Aim for a high GPA in your engineering courses to showcase your academic prowess to potential employers.
+
+                        </li>
+                        <li>
+                            Develop technical skills required for the job through coursework, projects, and hands-on experiences.
+                        </li>
+                        <li>
+                            Join engineering clubs, teams, or organizations to demonstrate your passion and commitment to the field.
+                        </li>
+                        <li>
+                            Apply for internships or cooperative education programs related to engineering to gain practical experience and industry exposure.
+
+                        </li>
+                        <li>
+                            Work on personal engineering projects to showcase your creativity, problem-solving skills, and initiative.
+                        </li>
+                        <li>
+                            Practice common engineering interview questions and scenarios to confidently discuss your skills and experiences.
+                        </li>
+                    </ul>
+                </div>                
+        </section>
+
+
+        <!--========== SCROLL REVEAL ==========-->
+        <script src="https://unpkg.com/scrollreveal"></script>
+
+        <!--========== MAIN JS ==========-->
+        <script src="../static/result.js"></script>
+    </body>
+</html>

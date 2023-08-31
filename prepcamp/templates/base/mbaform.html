@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>MBA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../static/forms.css">
+
+</head>
+<body>
+
+<div class="container">
+  <div class="title">MBA</div>
+  <form action="/mbaform" method="POST" name="mba">
+    {% csrf_token %}
+    <div class="user__details">
+
+
+      <div class="input__box" name="gender">
+        <span class="details">Gender</span>
+        <div class="select">
+          <select name='gender'>
+              <option>--Select--</option>
+              <option>Male</option>
+              <option>Female</option>
+          </select>
+          <div class="select_arrow">
+          </div>
+      </div>
+      </div>
+
+      <div class="input__box">
+        <span class="details">SSC Percentage</span>
+        <input type="number" name="ssc_p" placeholder="" required style="border: 2px solid #454545;">
+      </div>
+
+      <div class="input__box" name="ssc_b">
+        <span class="details">SSC Board</span>
+        <div class="select">
+          <select name="ssc_b">
+              <option>--Select--</option>
+              <option>Central</option>
+              <option>Others</option>
+          </select>
+          <div class="select_arrow">
+          </div>
+      </div>
+      </div>
+
+      <div class="input__box">
+        <span class="details">HSC Percentage</span>
+        <input type="number" name="hsc_p" placeholder="" required style="border: 2px solid #454545;">
+      </div>
+
+      <div class="input__box" name="hsc_b">
+        <span class="details">HSC Board</span>
+        <div class="select">
+          <select name="hsc_b">
+              <option>--Select--</option>
+              <option>Central</option>
+              <option>Others</option>
+          </select>
+          <div class="select_arrow">
+          </div>
+      </div>
+      </div>
+
+      <div class="input__box" name="hsc_s">
+        <span class="details">HSC Stream</span>
+        <div class="select">
+          <select name="hsc_s">
+              <option>--Select--</option>
+              <option>Commerce</option>
+              <option>Science</option>
+              <option>Arts</option>
+          </select>
+          <div class="select_arrow">
+          </div>
+      </div>
+      </div>
+
+
+      <div class="input__box">
+        <span class="details">Degree Percentage</span>
+        <input type="number" name="degree_p" placeholder="" required style="border: 2px solid #454545;">
+      </div>
+
+      <div class="input__box" name="degree_t">
+        <span class="details">Degree T</span>
+        <div class="select">
+          <select name="degree_t">
+              <option>--Select--</option>
+              <option>Science and Tech</option>
+              <option>Commerce and Management</option>
+              <option>Others</option>
+          </select>
+          <div class="select_arrow">
+          </div>
+      </div>
+      </div>
+
+      <div class="input__box" name="workex">
+        <span class="details">Work Experience</span>
+        <div class="select">
+          <select name='workex'>
+              <option>--Select--</option>
+              <option>Yes</option>
+              <option>No</option>
+          </select>
+          <div class="select_arrow">
+          </div>
+      </div>
+      </div>
+
+      <div class="input__box">
+        <span class="details">Etest Percentage</span>
+        <input type="number" name="etest_p" placeholder="" required style="border: 2px solid #454545;">
+      </div>
+
+      <div class="input__box" name="specialisation">
+        <span class="details">Specialisation</span>
+        <div class="select">
+          <select name="specialisation">
+              <option>--Select--</option>
+              <option>Marketing and HR</option>
+              <option>Marketing and Finance</option>
+          </select>
+          <div class="select_arrow">
+          </div>
+      </div>
+      </div>
+
+      <div class="input__box">
+        <span class="details">MBA Percentage</span>
+        <input type="number" name="mba_p" placeholder="" required style="border: 2px solid #454545;">
+      </div>
+
+      
+    </div>
+    <!-- <div class="gender__details">
+      <input type="radio" name="gender" id="dot-1">
+      <input type="radio" name="gender" id="dot-2">
+      <input type="radio" name="gender" id="dot-3">
+      <span class="gender__title">Gender</span>
+      <div class="category">
+        <label for="dot-1">
+          <span class="dot one"></span>
+          <span>Male</span>
+        </label>
+        <label for="dot-2">
+          <span class="dot two"></span>
+          <span>Female</span>
+        </label>
+        <label for="dot-3">
+          <span class="dot three"></span>
+          <span>Prefer not to say</span>
+        </label>
+      </div>
+    </div> -->
+
+    <div class="button">
+    
+        <input onclick="window.location.href='url'"; type="submit" value="Analyse">
+    
+
+    </div>
+  
+  </form>
+
+  <!-- <footer>
+    <p class="footer__copy">&#169; 2023 PrepCamp. All right reserved</p>
+  </footer> -->
+
+  
+</div>
+
+
+  
+</body>
+</html>

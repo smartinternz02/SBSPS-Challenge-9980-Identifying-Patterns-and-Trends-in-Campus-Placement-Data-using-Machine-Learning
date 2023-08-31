@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Engineering</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../static/forms.css">
+
+</head>
+<body>
+
+<div class="container">
+  <div class="title">Engineering</div>
+  <form action="/engg_result" method="POST" name="engineering">
+    {% csrf_token %}
+    <div class="user__details">
+
+
+
+      <div class="input__box" name="gender">
+        <span class="details">Gender</span>
+        <div class="select">
+          <select name="gender">
+              <option>--Select--</option>
+              <option>Male</option>
+              <option>Female</option>
+          </select>
+          <div class="select_arrow">
+          </div>
+      </div>
+      </div>
+
+      <div class="input__box">
+        <span class="details">Age</span>
+        <input type="number" name="Age" placeholder="" required style="border: 2px solid #454545;">
+      </div>
+
+
+
+      <div class="input__box">
+        <span class="details">Number Internships</span>
+        <input type="number" name="Internships" placeholder="" required style="border: 2px solid #454545;">
+      </div>
+
+      <div class="input__box">
+        <span class="details">CGPA</span>
+        <input type="number" name="CGPA" placeholder="" required style="border: 2px solid #454545;">
+      </div>
+
+      <div class="input__box">
+        <span class="details">History Of Backlogs</span>
+        <input type="number" name="HistoryOfBacklogs" placeholder="" required style="border: 2px solid #454545;">
+      </div>
+
+      <div class="input__box" name="Hostel">
+        <span class="details">Hostel</span>
+        <div class="select">
+          <select name="Hostel">
+            
+              <option>--Select--</option>
+              <option>Yes</option>
+              <option>No</option>
+          </select>
+          <div class="select_arrow">
+          </div>
+      </div>
+      </div>
+
+      <div class="input__box" name="Stream">
+        <span class="details">Stream</span>
+        <div class="select">
+          <select name="Stream">
+              <option>--Select--</option>
+              <option>Computer Science</option>
+              <option>Electronics and Communication</option>
+              <option>Information Technology</option>
+              <option>Civil</option>
+              <option>Mechanical</option>
+              <option>Electrical</option>
+          </select>
+          <div class="select_arrow">
+          </div>
+      </div>
+      </div>
+
+      
+    </div>
+    <!-- <div class="gender__details">
+      <input type="radio" name="gender" id="dot-1">
+      <input type="radio" name="gender" id="dot-2">
+      <input type="radio" name="gender" id="dot-3">
+      <span class="gender__title">Gender</span>
+      <div class="category">
+        <label for="dot-1">
+          <span class="dot one"></span>
+          <span>Male</span>
+        </label>
+        <label for="dot-2">
+          <span class="dot two"></span>
+          <span>Female</span>
+        </label>
+        <label for="dot-3">
+          <span class="dot three"></span>
+          <span>Prefer not to say</span>
+        </label>
+      </div>
+    </div> -->
+
+    <div class="button">
+    
+        <input onclick="window.location.href='url'"; type="submit" value="Analyse">
+    
+
+    </div>
+  
+  </form>
+
+  <!-- <footer>
+    <p class="footer__copy">&#169; 2023 PrepCamp. All right reserved</p>
+  </footer> -->
+
+  
+</div>
+
+
+  
+</body>
+</html>
