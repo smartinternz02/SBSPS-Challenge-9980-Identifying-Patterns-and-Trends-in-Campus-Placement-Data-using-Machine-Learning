@@ -19,24 +19,40 @@ from .import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.landing),
-    path('index',views.home),
+    path('index',views.home_mba),
     path('index_engg',views.home_engg),
-    path('studentlogin',views.studentsignup),
-    path('studentlogin_engg',views.studentsignup_engg),
-    path('studentdashboard',views.studentdashboard),
-    path('studentdashboard_engg',views.student_enggDashboard),
-    path('facultysignup',views.facultysignup),
-    
-    path('facultylogin',views.facultylogin),
+    # path('studentlogin',views.studentsignup_mba),
+    # path('studentlogin_engg',views.studentsignup_engg),
+    # path('studentlogin_engg',views.studentlogin_engg),
+    # path('studentlogin_engg',views.studentlogin_mba),
+
+    path('studentlogin',views.studentlogin_mba),
+    path('studentsignup',views.studentsignup_mba),
+    path('facultysignup',views.facultysignup_mba),
+    path('facultylogin',views.facultylogin_mba),
+
+
+    path('studentlogin_engg',views.studentlogin_engg),
+    path('studentsignup_engg',views.studentsignup_engg),
+    path('facultysignup_engg',views.facultysignup_engg),
     path('facultylogin_engg',views.facultylogin_engg),
+    path('engineeringform',views.engg_form),
+
+    path('studentdashboard',views.studentdashboard_mba),
+    path('studentdashboard_engg',views.student_enggDashboard),
+    # path('facultysignup',views.facultysignup_mba),
+    # path('facultysignup',views.facultysignup_engg),
+    # path('facultylogin',views.facultylogin_mba),
+    # path('facultylogin_engg',views.facultylogin_engg),
+
     path('facultydashboard',views.facultydashboard),
     path('facultydashboard_engg',views.facultydashboard_engg),
     path('mbaform',views.mba_form),
-    path('engineeringform',views.engg_form),
-    path('engg_result',views.engg_result),
+       
     path('mba_result',views.mba_result),
+    # path('engg_result',views.)
+
     path('csv_engg',views.csvupload_engg),
     path('csv_mba',views.csvupload_mba)
-
 
 ]

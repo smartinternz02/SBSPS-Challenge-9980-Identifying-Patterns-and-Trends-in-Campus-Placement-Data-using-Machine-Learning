@@ -90,16 +90,19 @@ def clusters(gender,ssc_p,ssc_b,hsc_p,hsc_b,hsc_s,degree_p,degree_t,workex,etest
     result_5 = y_kmeans5.predict(N)
 
     print('_______________________________________________________________________')
-    print(result_1)
-    print(result_2)
-    print(result_3)
-    print(result_4)
-    print(result_5)
+    print(result_1[0])
+    print(result_2[0])
+    print(result_3[0])
+    print(result_4[0])
+    print(result_5[0])
     print('_______________________________________________________________________')
 
 
 
-    return [result_1[0],result_2[0],result_3[0],result_4[0],result_5[0]]
+    # return [result_1,result   _2,result_3,result_4,result_5]
+    # print(result_1,result_2,result_3,result_4,result_5)
+    result = [result_1[0],result_2[0],result_3[0],result_4[0],result_5[0]]
+    return result
 
 def placement_status(gender,ssc_p,ssc_b,hsc_p,hsc_b,hsc_s,degree_p,degree_t,workex,etest_p,specialisation,mba_p):
     data = {

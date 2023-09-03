@@ -39,13 +39,13 @@ def landing(request):
     return render(request,'base/landing.html')
 
 #-----------------------Home Page--------------------------------
-def home(request):
+def home_mba(request):
     return render(request,'base/index.html')
 
 def home_engg(request):
     return render(request,'base/index_engg.html')
 # --------------------Student LoginPage-------------------
-def studentsignup(request):
+def studentsignup_mba(request):
     if request.method=="GET":
         return render(request,"base/studentlogin.html")
     if request.method=="POST":
@@ -110,55 +110,63 @@ def studentsignup_engg(request):
             })
         # print(uid)
         return render(request,"base/studentlogin_engg.html")
-def studentlogin(request):
-        try:
-            emailid=request.POST.get('studentemail')
-            password=request.POST.get('studentpassword')
-            print("Inside the login option")
-            print('-----------------------------')
-            print(emailid,password)
-            print('-----------------------------')
-            user=auth.sign_in_with_email_and_password(emailid,password)
-            uid=user['localId']
-            request.session['uid']=str(uid)
-            print(user)
 
-        except:
-            print("invalid Credintials") 
+def studentlogin_mba(request):
+        if request.method == 'GET':
+             return render(request,"base/studentlogin.html")
+        if request.method == 'POST':
+            try:
+                print("We are inside the login")
+                emailid=request.POST.get('studentemail')
+                password=request.POST.get('studentpassword')
+                print("Inside the login option")
+                print('-----------------------------')
+                print(emailid,password)
+                print('-----------------------------')
+                user=auth.sign_in_with_email_and_password(emailid,password)
+                uid=user['localId']
+                request.session['uid']=str(uid)
+                print("User is this",user)
 
-        session_id = user['localId']
-        request.session['uid']=str(session_id)
-        return render(request,'base/studentdashboard.html') 
+            except:
+                print("invalid Credintials") 
+
+            session_id = user['localId']
+            request.session['uid']=str(session_id)
+            return render(request,'base/studentdashboard.html') 
 
 
 def studentlogin_engg(request):
-        try:
-            emailid=request.POST.get('studentemail')
-            password=request.POST.get('studentpassword')
-            print("Inside the login option")
-            print('-----------------------------')
-            print(emailid,password)
-            print('-----------------------------')
-            user=auth.sign_in_with_email_and_password(emailid,password)
-            uid=user['localId']
-            request.session['uid']=str(uid)
-            print(user)
+         if request.method == 'GET':
+             return render(request,"base/studentlogin_engg.html")
+         if request.method== 'POST':
+            try:
+                emailid=request.POST.get('studentemail')
+                password=request.POST.get('studentpassword')
+                print("Inside the login option")
+                print('-----------------------------')
+                print(emailid,password)
+                print('-----------------------------')
+                user=auth.sign_in_with_email_and_password(emailid,password)
+                uid=user['localId']
+                request.session['uid']=str(uid)
+                print(user)
 
-        except:
-            print("invalid Credintials") 
+            except:
+                print("invalid Credintials") 
 
-        session_id = user['localId']
-        request.session['uid']=str(session_id)
-        return render(request,'base/studentdashboard_engg.html') 
+            session_id = user['localId']
+            request.session['uid']=str(session_id)
+            return render(request,'base/studentdashboard_engg.html') 
 #-------------------Student Dashboard Page-------------------------
-# def studentdashboard(request):
-#     return render(request,"base/studentdashboard.html")
+def studentdashboard_mba(request):
+    return render(request,"base/studentdashboard.html")
 
 def student_enggDashboard(request):
     return render(request,"base/studentdashboard_engg.html")
 
 #--------------------Faculty Signup Page-----------------------
-def facultysignup(request):
+def facultysignup_mba(request):
     # if request.method=="GET":
     #     print("inside login for the faculty")
     #     return render(request,"base/facultylogin.html")
@@ -191,45 +199,80 @@ def facultysignup(request):
         # return "hello"
 
 #--------------------Faculty Login  Page-----------------------
-def facultylogin(request):
-        try:
+def facultylogin_mba(request):
+        if request.method=='GET' :
+             return render (request , "base/facultylogin.html")
+        if request.method == 'POST':
+            try:
+                
+                    emailid=request.POST.get('facultyemail')
+                    password=request.POST.get('facultypassword')
+                    print("Inside the login option")
+                    print('-----------------------------')
+                    print(emailid,password)
+                    print('-----------------------------')
+                    User=auth.sign_in_with_email_and_password(emailid,password)
+                    print(User)
+                    session_id = User['idToken']
+                    request.session['uid']=str(session_id)
+
+            except:
+                print("invalid Credintials") 
+
             
-                emailid=request.POST.get('facultyemail')
-                password=request.POST.get('facultypassword')
-                print("Inside the login option")
-                print('-----------------------------')
-                print(emailid,password)
-                print('-----------------------------')
-                User=auth.sign_in_with_email_and_password(emailid,password)
-                print(User)
-                session_id = User['idToken']
-                request.session['uid']=str(session_id)
+            return render(request,'base/facultydashboard.html')  
 
-        except:
-            print("invalid Credintials") 
-
+def facultysignup_engg(request):
+    if request.method=="GET":
+        print("inside login for the faculty")
+        return render(request,"base/facultylogin_engg.html")
+    if request.method=="POST":
+        print('Inside the engg faculty method post')
+        name=request.POST.get('facultyname')
+        emailid=request.POST.get('facultyemail')
+        password=request.POST.get('facultypassword')
+        print("@@@@@@@@@@")
+        print(name,emailid,password)
         
-        return render(request,'base/facultylogin.html')  
+        print("************")
+        print(name,emailid,password)
+        print("************")
 
+        User=auth.create_user_with_email_and_password(emailid,password)
+        print(User)
+        uid=User['localId']
+        user_doc_ref = db.collection('Faculty').document(uid)
+        user_doc_ref.set({
+                'name': name,
+                'email': emailid,
+                'Mba_Skills':[],
+                'Engg_Skills':[]
+            })
+        print(uid)
+        return render(request,"base/facultylogin_engg.html")
 def facultylogin_engg(request):
-        try:
+        if request.method=="GET":
+            print("inside login for the faculty")
+            return render(request,"base/facultylogin_engg.html")
+        if request.method == "POST":
+            try:
+                
+                    emailid=request.POST.get('facultyemail')
+                    password=request.POST.get('facultypassword')
+                    print("Inside the engg login option")
+                    print('-----------------------------')
+                    print(emailid,password)
+                    print('-----------------------------')
+                    User=auth.sign_in_with_email_and_password(emailid,password)
+                    print(User)
+                    session_id = User['idToken']
+                    request.session['uid']=str(session_id)
+
+            except:
+                print("invalid Credintials") 
+
             
-                emailid=request.POST.get('facultyemail')
-                password=request.POST.get('facultypassword')
-                print("Inside the login option")
-                print('-----------------------------')
-                print(emailid,password)
-                print('-----------------------------')
-                User=auth.sign_in_with_email_and_password(emailid,password)
-                print(User)
-                session_id = User['idToken']
-                request.session['uid']=str(session_id)
-
-        except:
-            print("invalid Credintials") 
-
-        
-        return render(request,'base/facultylogin_engg.html')                                                         
+            return render(request,'base/facultydashboard_engg.html')                                                         
 
 #-------------------Faculty Dashboard Page-------------------------
 def facultydashboard(request):
@@ -251,7 +294,7 @@ def facultydashboard_engg(request):
 
 def csvupload_engg(request):
      if request.method=='GET':
-          return render(request,"base/csvupload.html")
+          return render(request,"base/csvupload_engg.html")
      if request.method=='POST':
         file =  request.FILES['file']# fet input
         with open('base/upload/'+file.name, 'wb+') as destination:  
@@ -285,7 +328,7 @@ def csvupload_engg(request):
 
 def csvupload_mba(request):
      if request.method=='GET':
-          return render(request,"base/csvupload.html")
+          return render(request,"base/csvupload_mba.html")
      if request.method=='POST':
         file =  request.FILES['file']# fet input
         with open('base/upload/'+file.name, 'wb+') as destination:  
@@ -369,10 +412,10 @@ def engg_form(request):
             print('Error in uploading')
 
        
-        return render(request,"base/eng_result.html",{'clust':engg_clust,'place':engg_place[0]})
+        return render(request,"base/eng_result.html",{'clust0':engg_clust[0],'clust1':engg_clust[1],'clust2':engg_clust[2],'clust3':engg_clust[3],'clust4':engg_clust[4],'place':engg_place[0]})
 
-def engg_result(request):
-     return render(request,"base/eng_result.html")        
+# def engg_result(request):
+#      return render(request,"base/eng_result.html")        
 
 def mba_form(request):
     if request.method == "GET":
@@ -434,7 +477,8 @@ def mba_form(request):
             print('Hello')
         except:
             print('Error in uploading')
-        return render(request,"base/mba_result.html",{'clust':mba_clusters,'perc':mba_placement[1],'salary':mba_salary})
+        print(mba_clusters[0])
+        return render(request,"base/mba_result.html",{'clust0':mba_clusters[0],'clust1':mba_clusters[1],'clust2':mba_clusters[2],'clust3':mba_clusters[3],'clust4':mba_clusters[4],'perc':mba_placement[1],'salary':mba_salary})
 
 def mba_result(request):
      return render(request,"base/mba_result.html")        

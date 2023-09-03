@@ -34,8 +34,8 @@
     </div>
   </div> -->
   <div class="wrapper">
-    <header>Upload Waste Image</header>
-    <form target="_blank" action="#" method="POST" name="file" enctype="multipart/form-data">
+    <header>Upload Your CSV File</header>
+    <form target="_blank" action="/csv_mba" method="POST" name="file" enctype="multipart/form-data">
       {% csrf_token %}
     
       <input class="file-input" type="file" name="file" hidden>
