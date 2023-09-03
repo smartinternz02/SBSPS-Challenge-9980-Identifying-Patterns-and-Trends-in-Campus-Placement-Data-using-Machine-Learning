@@ -34,39 +34,21 @@ ct_c = pickle.load(open("base\ct_c.pkl",'rb'))
 ct_r = pickle.load(open("base\ct_r.pkl",'rb'))
 scaler = pickle.load(open('base\scaler.pkl','rb'))
 
-def clusters(gender,ssc_p,ssc_b,hsc_p,hsc_b,hsc_s,degree_p,degree_t,workex,etest_p,specialisation,mba_p):
-    data = {
-        'gender':[gender],
-        'ssc_p':[ssc_p/100],
-        'ssc_b':[ssc_b],
-        'hsc_p':[hsc_p/100],
-        'hsc_b':[hsc_b],
-        'hsc_s':[hsc_s],
-        'degree_p':[degree_p/100],
-        'degree_t':[degree_t],
-        'workex':[workex],
-        'etest_p':[etest_p/100],
-        'specialisation':[specialisation],
-        'mba_p':[mba_p],
-    }
+cols = ['gender', 'ssc_b', 'hsc_b', 'hsc_s', 'degree_t', 'specialisation', 'status']
 
-
-    if(data['specialisation']==['Marketing and HR']):
-        data.update([('specialisation',[0])])
-    if(data['specialisation']==['Marketing and Finance']):
-        data.update([('specialisation',[1])])
-    if(data['workex']==['No']):
-        data.update([('workex',[0])])
-    if(data['workex']==['Yes']):
-        data.update([('workex',[1])])
-    if(data['degree_t']==['Science and Tech']):
-        data.update([('degree_t',[0])])
-    if(data['degree_t']==['Commerce and Management']):
-        data.update([('degree_t',[1])])
+def clusters(filepath):
    
-    print(data)
-    data = pd.DataFrame(data)
+    data = pd.read_csv(filepath)    
     
+
+    cols.append('workex')
+    cols.remove('status')
+    for i in cols:
+
+        data[i].replace(list(camp[i].unique()),list(range(0,data[i].nunique())),inplace=True)
+
+    data['status'].replace(['Placed','Not Placed'],[0,1],inplace=True)
+
     print(data)
 
     X = data[['ssc_p','hsc_p']]
@@ -100,101 +82,63 @@ def clusters(gender,ssc_p,ssc_b,hsc_p,hsc_b,hsc_s,degree_p,degree_t,workex,etest
 
     result1=result2=result3=result4=result5=0
     for i in range(0,len(result_1)):
-        result1 += result_1[i][0]
-        result2 += result_2[i][0]
-        result3 += result_3[i][0]
-        result4 += result_4[i][0]
-        result5 += result_5[i][0]
+        result1 += result_1[i]
+        result2 += result_2[i]
+        result3 += result_3[i]
+        result4 += result_4[i]
+        result5 += result_5[i]
+    
+    print(result1)
 
-    result_1 = result1/(len(result1)+1)
-    result_2 = result2/(len(result2)+1)
-    result_3 = result3/(len(result3)+1)
-    result_4 = result4/(len(result4)+1)
-    result_5 = result5/(len(result5)+1)
-    return [result_1,result_2,result_3,result_4,result_5]
+    result_1 = result1/len(result_1)
+    result_2 = result2/len(result_2)
+    result_3 = result3/len(result_3)
+    result_4 = result4/len(result_4)
+    result_5 = result5/len(result_5)
 
-def placement_status(gender,ssc_p,ssc_b,hsc_p,hsc_b,hsc_s,degree_p,degree_t,workex,etest_p,specialisation,mba_p):
-    data = {
-        'gender':[gender],
-        'ssc_p':[ssc_p],
-        'ssc_b':[ssc_b],
-        'hsc_p':[hsc_p],
-        'hsc_b':[hsc_b],
-        'hsc_s':[hsc_s],
-        'degree_p':[degree_p],
-        'degree_t':[degree_t],
-        'workex':[workex],
-        'etest_p':[etest_p],
-        'specialisation':[specialisation],
-        'mba_p':[mba_p],
-    }
-    if(data['gender']==['Male']):
-        data.update([('gender',['M'])])
-    if(data['gender']==['Female']):
-        data.update([('gender','F')])
-    if(data['specialisation']==['Marketing and HR']):
-        data.update([('specialisation',['Mkt&HR'])])
-    if(data['specialisation']==['Marketing and Finance']):
-        data.update([('specialisation',['Mkt&Fin'])])
-    if(data['degree_t']==['Science and Tech']):
-        data.update([('degree_t',['Sci&Tech'])])
-    if(data['degree_t']==['Commerce and Management']):
-        data.update([('degree_t',['Comm&Mgmt'])])
+    results  = [result_1,result_2,result_3,result_4,result_5]
 
-    data = pd.DataFrame(data)
+    return results
+
+def placement_status(filepath):
+   
+
+    data = pd.read_csv(filepath)   
+    data=data.drop('status',axis=1) 
+    data=data.drop('salary',axis=1) 
     print("_____________________________________________________________________________")
     print(data)
     print("_____________________________________________________________________________")
     data=ct_c.transform(data)
     result_prob=mba_class.predict(data)
+    
+    print(result_prob)
     result_probs=0
     for i in range(0,len(result_prob)):
         result_probs += result_prob[i][0]
     
+    print(result_probs)
     result_prob = result_probs/(len(result_prob)+1)
+    print(result_prob)
     result = str(tf.round(result_prob))
 
-    if(result=='tf.Tensor([[0.]], shape=(1, 1), dtype=float32)'):
+    print(result)
+    if(result=='tf.Tensor(0.0, shape=(), dtype=float64)'):
         result = 0
-    if(result=='tf.Tensor([[0.]], shape=(1, 1), dtype=float32)'):
+    if(result=='tf.Tensor(1.0, shape=(), dtype=float64)'):
         result = 1
     
-    result_perc = round(100 * (np.max(result_prob[0])), 2)
+    result_perc = round(100 * (np.max(result_prob)), 2)
 
     print("result is",result)
     print("result percentage is",result_perc)
 
     return [result,result_perc]
 
-def salary(gender,ssc_p,ssc_b,hsc_p,hsc_b,hsc_s,degree_p,degree_t,workex,etest_p,specialisation,mba_p):
-    data = {
-        'gender':[gender],
-        'ssc_p':[ssc_p],
-        'ssc_b':[ssc_b],
-        'hsc_p':[hsc_p],
-        'hsc_b':[hsc_b],
-        'hsc_s':[hsc_s],
-        'degree_p':[degree_p],
-        'degree_t':[degree_t],
-        'workex':[workex],
-        'etest_p':[etest_p],
-        'specialisation':[specialisation],
-        'mba_p':[mba_p],
-    }
-    if(data['gender']==['Male']):
-        data.update([('gender',['M'])])
-    if(data['gender']==['Female']):
-        data.update([('gender','F')])
-    if(data['specialisation']==['Marketing and HR']):
-        data.update([('specialisation',['Mkt&HR'])])
-    if(data['specialisation']==['Marketing and Finance']):
-        data.update([('specialisation',['Mkt&Fin'])])
-    if(data['degree_t']==['Science and Tech']):
-        data.update([('degree_t',['Sci&Tech'])])
-    if(data['degree_t']==['Commerce and Management']):
-        data.update([('degree_t',['Comm&Mgmt'])])
 
-    data = pd.DataFrame(data)
+def salary(filepath):
+    
+    data = pd.read_csv(filepath)
     print('Salary')
     print("                                      ")
     print("                                      ")
@@ -203,10 +147,10 @@ def salary(gender,ssc_p,ssc_b,hsc_p,hsc_b,hsc_s,degree_p,degree_t,workex,etest_p
     result = salary_pred.predict(data)
 
     result_sal=0
-    for i in range(0,len(result_sal)):
-        result_sal += result_sal[i][0]
+    for i in range(0,len(result)):
+        result_sal += result[i][0]
     
-    result= result_sal/(len(result_sal)+1)
+    result= result_sal/len(result)
 
     result = np.array(result)
     result = scaler.inverse_transform(np.array(result).reshape(-1,1))

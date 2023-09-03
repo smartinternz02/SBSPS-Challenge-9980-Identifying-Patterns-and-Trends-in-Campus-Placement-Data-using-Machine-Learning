@@ -324,7 +324,7 @@ def csvupload_engg(request):
             print('Error in uploading')
 
        
-        return render(request,"base/eng_result.html",{'clust':engg_clust,'place':engg_place[0]})
+        return render(request,"base/eng_result.html",{'clust0':engg_clust[0],'clust1':engg_clust[1],'clust2':engg_clust[2],'clust3':engg_clust[3],'clust4':engg_clust[4],'place':engg_place[0]})
 
 def csvupload_mba(request):
      if request.method=='GET':
